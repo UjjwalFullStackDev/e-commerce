@@ -52,6 +52,9 @@
   --text-caption--line-height: 20px;
   --text-caption--font-weight: 500;
 
+  /* subtitle */
+  --text-subtitle: 20px;
+
   /* Footnote */
   --text-footnote: 12px;
   --text-footnote--line-height: 18px;

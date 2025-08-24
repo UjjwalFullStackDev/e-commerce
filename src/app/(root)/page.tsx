@@ -3,6 +3,9 @@ import { Card } from "@/components";
 import {getCurrentUser} from "@/lib/auth/actions";
 import { getAllProducts } from "@/lib/actions/product";
 import { parseFilterParams } from "@/lib/utils/query";
+import Hero from "@/components/Hero";
+import Trending from "@/components/Trending";
+import CTA from "@/components/CTA";
 
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -19,10 +22,12 @@ const Home = async ({
   const { products } = await getAllProducts(parsed);
 
   return (
-    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <>
+    <Hero />
+    <main className="mx-auto container px-4 sm:px-6 lg:px-8">
       <section aria-labelledby="latest" className="pb-12">
-        <h2 id="latest" className="mb-6 text-heading-3 text-dark-900">
-          Latest shoes
+        <h2 id="latest" className="my-12 text-heading-3 text-dark-900">
+          Best of Air Max
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => {
@@ -46,6 +51,9 @@ const Home = async ({
         </div>
       </section>
     </main>
+    <Trending />
+    <CTA />
+    </>
   );
 };
 
