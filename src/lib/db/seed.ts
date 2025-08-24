@@ -1,4 +1,4 @@
-import { db } from '@/lib/db';
+import { getData } from '@/lib/db';
 import {
   genders, colors, sizes, brands, categories, collections, productCollections,
   products, productVariants, productImages,
@@ -11,6 +11,8 @@ import { mkdirSync, existsSync, cpSync } from 'fs';
 import { join, basename } from 'path';
 type ProductRow = typeof products.$inferSelect;
 type VariantRow = typeof productVariants.$inferSelect;
+
+const db = await getData();
 
 type RGBHex = `#${string}`;
 
