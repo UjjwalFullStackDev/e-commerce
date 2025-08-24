@@ -3,7 +3,7 @@
 "use server";
 
 import { and, asc, count, desc, eq, ilike, inArray, isNull, or, sql, type SQL } from "drizzle-orm";
-import { db } from "@/lib/db";
+import { getData } from "@/lib/db";
 import {
   brands,
   categories,
@@ -26,6 +26,8 @@ import {
 } from "@/lib/db/schema";
 
 import { NormalizedProductFilters } from "@/lib/utils/query";
+
+const db = await getData();
 
 type ProductListItem = {
   id: string;
